@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="单例模式  定义   保证一个类仅有一个实例，并提供一个访问它的全局访问点。">
+    <meta name="description" content="[TOC] 单例模式  定义   保证一个类仅有一个实例，并提供一个访问它的全局访问点。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之单例模式">
-<meta property="og:url" content="http:&#x2F;&#x2F;baidu.com&#x2F;2017&#x2F;05&#x2F;26&#x2F;%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;banduweixiao.github.io&#x2F;2017&#x2F;05&#x2F;26&#x2F;%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="TooBug的个人博客">
-<meta property="og:description" content="单例模式  定义   保证一个类仅有一个实例，并提供一个访问它的全局访问点。">
+<meta property="og:description" content="[TOC] 单例模式  定义   保证一个类仅有一个实例，并提供一个访问它的全局访问点。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;baidu.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;banduweixiao.github.io&#x2F;images&#x2F;og_image.png">
 <meta property="article:published_time" content="2017-05-26T04:12:57.000Z">
-<meta property="article:modified_time" content="2019-12-13T07:33:01.727Z">
+<meta property="article:modified_time" content="2019-12-13T09:20:10.708Z">
 <meta property="article:author" content="Toobug">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;baidu.com&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;banduweixiao.github.io&#x2F;images&#x2F;og_image.png">
 
 
 
@@ -164,7 +164,7 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2017-05-26T04:12:57.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2017-05-26</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-12-13T07:33:01.727Z"><i class="far fa-calendar-check">&nbsp;</i>2019-12-13</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-12-13T09:20:10.708Z"><i class="far fa-calendar-check">&nbsp;</i>2019-12-13</time>
                 
                 
                 <div class="level-item">
@@ -177,7 +177,7 @@
                     <i class="far fa-clock"></i>&nbsp;
                     
                     
-                    6 分钟 读完 (大约 837 个字)
+                    6 分钟 读完 (大约 838 个字)
                 </span>
                 
                 
@@ -190,7 +190,8 @@
         </div>
         
         <div class="content">
-            <p>单例模式</p>
+            <p>[TOC]</p>
+<p>单例模式</p>
 <ul>
 <li>定义</li>
 </ul>
@@ -223,35 +224,35 @@
 <p>序列化和反序列化安全、</p>
 <p>反射攻击</p>
 </blockquote>
-<h3><span id="饿汉式">饿汉式</span></h3><blockquote>
+<h3 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h3><blockquote>
 <p>​        饿汉式单例模式就是在类初始化的时候完成实例的初始化，恶汉式的<strong>优点</strong>就是<strong>简单</strong>，同时也使用类的静态初始化保证了<strong>线程安全</strong>，<strong>缺点</strong>就是不能<strong>延迟加载</strong>(按需加载)，可能造成不必要的内存开销(没用到、实例很大)。</p>
 </blockquote>
 <img src="C:\Users\53101\AppData\Roaming\Typora\typora-user-images\1574579066544.png" alt="1574579066544" style="zoom:67%;">
 
 
 
-<h3><span id="懒汉式">懒汉式</span></h3><blockquote>
+<h3 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h3><blockquote>
 <p>​        懒汉式和饿汉式的主要区别就是延迟加载，懒汉式在类初始化时只声明变量并没有完成初始化操作，只有当应用调用时才会完成变量的初始化操作。</p>
 </blockquote>
 <img src="C:\Users\53101\AppData\Roaming\Typora\typora-user-images\1574579569250.png" alt="1574579569250" style="zoom:67%;">
 
-<h4><span id="多线程访问的问题">多线程访问的问题</span></h4><blockquote>
+<h4 id="多线程访问的问题"><a href="#多线程访问的问题" class="headerlink" title="多线程访问的问题"></a>多线程访问的问题</h4><blockquote>
 <p>​        在多线程环境下，当多线程同时调用LazySingleton.getInstance()来获取实例时，<strong>可能造成创建多个实例</strong>。我们可以通过同步时锁getInstance2()来避免这样的问题。虽然getInstance2()解决了多线程访问的问题，但是每次调用getInstance2()都会创建锁，这就造成了不必要的锁开销。我们通过<strong>双重锁定策略或静态初始化</strong>来解决这个问题。</p>
 </blockquote>
-<h5><span id="双重锁定">双重锁定</span></h5><blockquote>
+<h5 id="双重锁定"><a href="#双重锁定" class="headerlink" title="双重锁定"></a>双重锁定</h5><blockquote>
 <p>​        双重锁定只有当实例未创建时才会加锁处理。</p>
 </blockquote>
 <img src="C:\Users\53101\AppData\Roaming\Typora\typora-user-images\1574579971418.png" alt="1574579971418" style="zoom:67%;">
 
-<h5><span id="静态初始化">静态初始化</span></h5><blockquote>
+<h5 id="静态初始化"><a href="#静态初始化" class="headerlink" title="静态初始化"></a>静态初始化</h5><blockquote>
 <p>​        基于类初始化的延迟加载解决方案，</p>
 </blockquote>
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span>: toobug</span></span><br><span class="line"><span class="hljs-comment"> * <span class="hljs-doctag">@Description</span> 基于类初始化的延迟加载解决方案</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaticInnerClassSingleton</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// 定义内部类</span></span><br><span class="line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InnerClass</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> StaticInnerClassSingleton singleton = <span class="hljs-keyword">new</span> StaticInnerClassSingleton();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">StaticInnerClassSingleton</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> StaticInnerClassSingleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> InnerClass.singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3><span id="序列化反序列破坏单例">序列化/反序列破坏单例</span></h3><blockquote>
+<h3 id="序列化-反序列破坏单例"><a href="#序列化-反序列破坏单例" class="headerlink" title="序列化/反序列破坏单例"></a>序列化/反序列破坏单例</h3><blockquote>
 <p>​        如果单例类实现了序列化接口Serializable，我们可以通过反序列化ObjectInputStream.getObject()创建新的Singleton实例，这显然不符合单例模式的定义，我们可以再Singleton类定义readResolve()返回单例实例来避免，<strong>反序列化通过反射重新创建实例</strong>。</p>
 </blockquote>
-<h3><span id="反射攻击">反射攻击</span></h3><p><img src="C:%5CUsers%5C53101%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1574583727818.png" alt="1574583727818"></p>
+<h3 id="反射攻击"><a href="#反射攻击" class="headerlink" title="反射攻击"></a>反射攻击</h3><p><img src="C:%5CUsers%5C53101%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1574583727818.png" alt="1574583727818"></p>
 <ul>
 <li><strong>如何进行反射防御呢</strong></li>
 </ul>
@@ -259,22 +260,22 @@
 
 
 
-<h3><span id="单例-枚举类">单例-枚举类</span></h3><blockquote>
+<h3 id="单例-枚举类"><a href="#单例-枚举类" class="headerlink" title="单例-枚举类"></a>单例-枚举类</h3><blockquote>
 <p>单例模式的最佳实践，可以保证线程安全和防止反射攻击。</p>
 <p>Enum只有一个有参构造器，而且反射代码中规定不能实例化枚举类型</p>
 <p>可能看另一边博客</p>
 <p>[单例模式]: </p>
 </blockquote>
-<h3><span id="容器单例">容器单例</span></h3><blockquote>
+<h3 id="容器单例"><a href="#容器单例" class="headerlink" title="容器单例"></a>容器单例</h3><blockquote>
 <p>举例spring</p>
 </blockquote>
 
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://baidu.com/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">设计模式之单例模式</a></li>
-            <li><strong>本文作者：</strong><a href="http://baidu.com">Toobug</a></li>
-            <li><strong>本文链接：</strong><a href="http://baidu.com/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">http://baidu.com/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</a></li>
+            <li><strong>本文标题：</strong><a href="https://banduweixiao.github.io/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">设计模式之单例模式</a></li>
+            <li><strong>本文作者：</strong><a href="https://banduweixiao.github.io">Toobug</a></li>
+            <li><strong>本文链接：</strong><a href="https://banduweixiao.github.io/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">https://banduweixiao.github.io/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</a></li>
             <li><strong>发布时间：</strong>2017-05-26</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
@@ -331,7 +332,7 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://baidu.com/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/';
+        this.page.url = 'https://banduweixiao.github.io/2017/05/26/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/';
         this.page.identifier = '2017/05/26/单例模式/';
     };
     (function() {
@@ -435,39 +436,39 @@
                 目录
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#饿汉式">
         <span class="has-mr-6">1</span>
         <span>饿汉式</span>
         </a></li><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#懒汉式">
         <span class="has-mr-6">2</span>
         <span>懒汉式</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#多线程访问的问题">
         <span class="has-mr-6">2.1</span>
         <span>多线程访问的问题</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#双重锁定">
         <span class="has-mr-6">2.1.1</span>
         <span>双重锁定</span>
         </a></li><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#静态初始化">
         <span class="has-mr-6">2.1.2</span>
         <span>静态初始化</span>
         </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#序列化-反序列破坏单例">
         <span class="has-mr-6">3</span>
         <span>序列化/反序列破坏单例</span>
         </a></li><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#反射攻击">
         <span class="has-mr-6">4</span>
         <span>反射攻击</span>
         </a></li><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#单例-枚举类">
         <span class="has-mr-6">5</span>
         <span>单例-枚举类</span>
         </a></li><li>
-        <a class="is-flex" href="#undefined">
+        <a class="is-flex" href="#容器单例">
         <span class="has-mr-6">6</span>
         <span>容器单例</span>
         </a></li></ul>
